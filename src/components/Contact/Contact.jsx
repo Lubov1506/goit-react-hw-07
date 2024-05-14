@@ -3,8 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import Button from "../Button/Button";
 import s from "./Contact.module.css";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
-import getFormatNumber from "../../helpers/functions";
+import { deleteContact } from "../../redux/contactsOps";
 
 const Contact = ({ item: { name, number, id } }) => {
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const Contact = ({ item: { name, number, id } }) => {
         </p>
         <p>
           <FaPhoneAlt />
-          <span>{getFormatNumber(number)}</span>
+          <span>{number}</span>
         </p>
       </div>
       <Button onClick={() => dispatch(deleteContact(id))}>Delete</Button>
