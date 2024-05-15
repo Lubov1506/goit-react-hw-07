@@ -34,7 +34,6 @@ const contactsSlice = createSlice({
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log(action.payload);
         state.items.push(action.payload);
       })
       .addCase(addContact.rejected, handleRejected)
@@ -43,8 +42,10 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = state.items.filter((item) => item.id !== action.payload);
-        console.log(state.items);
+        state.items = state.items.filter(
+          (item) => item.id !== action.payload.id
+        );
+        console.log(action.payload);
       })
       .addCase(deleteContact.rejected, handleRejected);
   },
