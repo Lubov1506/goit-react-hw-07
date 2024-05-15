@@ -45,7 +45,6 @@ const contactsSlice = createSlice({
         state.items = state.items.filter(
           (item) => item.id !== action.payload.id
         );
-        console.log(action.payload);
       })
       .addCase(deleteContact.rejected, handleRejected);
   },
